@@ -1,2 +1,10 @@
-test depuis app.component
-<app-ui></app-ui>
+<app-ui>
+
+  <!-- ici on a accès à tous les composants de CoreModule -->
+  <!-- on va projeter ces composants à l'intérieur de app-ui -->
+  <!-- transclusion -->
+  <app-header class='tr-header'></app-header>
+  <app-nav class='tr-nav'></app-nav>
+  <app-footer class='tr-footer'></app-footer>
+</app-ui>
+
