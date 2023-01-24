@@ -6,6 +6,8 @@ import { AppComponent } from './app.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { CoreModule } from './core/core.module';
 
+
+
 // decorator
 @NgModule({
   declarations: [
@@ -13,7 +15,12 @@ import { CoreModule } from './core/core.module';
     AppComponent,
     // déclarations
   ],
-  imports: [BrowserModule, AppRoutingModule, NgbModule, CoreModule],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    NgbModule,
+    CoreModule,
+  ],
   providers: [],
   bootstrap: [AppComponent],
 })

@@ -1,4 +1,10 @@
+<!-- utiliser un composant qui existe dans un autre module
+
+-->
 <app-ui>
+  <!-- projeter le bouton depuis ce composant -->
+  <app-icon-close class='tr-btn-close'></app-icon-close>
+  <app-icon-nav class='tr-btn-nav'></app-icon-nav>
 
   <!-- ici on a accès à tous les composants de CoreModule -->
   <!-- on va projeter ces composants à l'intérieur de app-ui -->
@@ -6,5 +12,9 @@
   <app-header class='tr-header'></app-header>
   <app-nav class='tr-nav'></app-nav>
   <app-footer class='tr-footer'></app-footer>
+
+  <!-- projeter le router-outlet -->
+  <router-outlet class='tr-router'></router-outlet>
 </app-ui>
+
 
