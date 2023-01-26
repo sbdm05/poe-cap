@@ -8,14 +8,23 @@ import { OrdersService } from '../../services/orders.service';
   styleUrls: ['./page-list-orders.component.scss'],
 })
 export class PageListOrdersComponent implements OnInit {
+
+  public titleParent: string = 'Liste des commandes'
+
+
   // propriété pour stocker data
   public collection!: Order[];
 
   // déclencher la prop collection + afficher data dans console.log
+  // obtenir les datas très tôt dans la construction du composant
+
+  // accéder au service = injection de dépendances
   constructor(private ordersService: OrdersService) {
     this.ordersService.collection.subscribe((data) => {
+      //console.log(data);
+
       this.collection = data;
-      console.log(this.collection);
+      //console.log(this.collection);
     });
   }
 

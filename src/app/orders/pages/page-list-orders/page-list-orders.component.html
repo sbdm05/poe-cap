@@ -1,3 +1,12 @@
-<ul>
-  <li *ngFor='let i of collection'>{{ i.client }}</li>
-</ul>
+<!-- itérer dans collection et affiche chaque obj de collection -->
+<!-- utiliser des templates de pages  -->
+<!-- property binding -->
+<!-- <app-template-container title={{titleParent}}></app-template-container> -->
+
+<app-template-full-width [title]='titleParent'>
+  <!-- ici on veut afficher un tableau -->
+  <app-table-light></app-table-light>
+
+</app-template-full-width>
+
+<!-- composant réutilisable et personnalisable -->

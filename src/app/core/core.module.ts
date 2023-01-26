@@ -6,6 +6,8 @@ import { NavComponent } from './components/nav/nav.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { IconsModule } from '../icons/icons.module';
 import { RouterModule } from '@angular/router';
+import { TemplatesModule } from '../templates/templates.module';
+import { SharedModule } from '../shared/shared.module';
 
 @NgModule({
   declarations: [HeaderComponent, NavComponent, FooterComponent],
