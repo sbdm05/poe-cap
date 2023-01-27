@@ -15,15 +15,19 @@
           <td>{{item.client}}</td>
           <td>{{item.nbJours}}</td>
           <td>{{item.tjmHt}}</td>
-          <td>{{ item.tjmHt | total :item.nbJours  }}</td>
+          <td>{{ item.tjmHt | total :item.nbJours }}</td>
           <td>{{ item.tjmHt | total :item.nbJours :item.tva }}</td>
-          <td>
-            <select>
-              <option *ngFor='let state of states'>{{ state }}</option>
+          <td appState [etat]='item.state'>
+            <!-- si state === item.state -->
+            <select (change)='changeState(item, $event)'>
+              <option [selected]='state === item.state' [value]='state' *ngFor='let state of states'>{{ state }}</option>
             </select>
           </td>
         </tr>
   </app-table-light>
+
+  <app-btn label='Ajouter' route='/orders/add' styleBtn='btn btn-primary'>
+  </app-btn>
 
 </app-template-full-width>
 
@@ -33,12 +37,32 @@ ajouter du style au bouton
 ajouter un lien de redirection
 ajouter un label = ajouter
 -->
-<app-btn
-  label='Ajouter'
-  route='/orders/add'
-  styleBtn='btn btn-primary'
-  >
-</app-btn>
 
-<!-- composant réutilisable et personnalisable -->
 
+<!-- composant réutilisable et personnalisable
+
+let s = "3" // string
+Number(s) // number
+let n = 3  // number
+
+if(s == 3) // true
+
+if(s === 3) // false
+
+-->
+
+
+
+
+<!-- etapes
+  composant
+  HTML event sur select
+  TS récupérer la valeur par target
+  déclencher une méthode dans le service avec .subscribe
+
+  service
+  méthode changeState(obj)
+  service : put
+  this.http.put('url', obj)
+
+-->

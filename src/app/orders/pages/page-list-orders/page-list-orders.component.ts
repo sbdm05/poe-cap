@@ -54,4 +54,23 @@ export class PageListOrdersComponent implements OnInit {
   //   }
   //   return val * coef;
   // }
+
+  public changeState(item: Order, event: Event) {
+    //console.log(event, 'event');
+    const target = event.target as HTMLSelectElement;
+    // console.log(target);
+    const state = target.value as StateOrder; // confirmed ou option, cancelled
+    // console.log(state);
+
+    this.ordersService.changeState(item, state).subscribe((data) => {
+      // console.log(data);
+      // item prend la référence de data => problème
+      // item = data;
+      // ?? solution ??
+      // item garde sa référence
+      Object.assign(item, data);
+    });
+
+    // appel .subscribe()
+  }
 }
