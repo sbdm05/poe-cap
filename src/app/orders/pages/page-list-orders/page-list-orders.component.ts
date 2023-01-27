@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { StateOrder } from 'src/app/core/enums/state-order';
 import { Order } from 'src/app/core/models/order';
 import { OrdersService } from '../../services/orders.service';
 
@@ -8,12 +9,25 @@ import { OrdersService } from '../../services/orders.service';
   styleUrls: ['./page-list-orders.component.scss'],
 })
 export class PageListOrdersComponent implements OnInit {
+  public titleParent: string = 'Liste des commandes';
 
-  public titleParent: string = 'Liste des commandes'
-
+  // déclarer une propriété et stocker l'enum
+  public states = Object.values(StateOrder);
 
   // propriété pour stocker data
   public collection!: Order[];
+
+  // En-têtes du tableau
+  public headers: string[] = [
+    'Action',
+    'Type',
+    'Client',
+    'NbJours',
+    'Tjm HT',
+    'Total HT',
+    'Total TTC',
+    'State',
+  ];
 
   // déclencher la prop collection + afficher data dans console.log
   // obtenir les datas très tôt dans la construction du composant
@@ -24,9 +38,20 @@ export class PageListOrdersComponent implements OnInit {
       //console.log(data);
 
       this.collection = data;
-      //console.log(this.collection);
+      console.log(this.collection);
     });
   }
 
   ngOnInit(): void {}
+
+  // REMPLACEE PAR LE PIPE TOTAL
+  // expects 2/3 arguments
+  // public total(val: number, coef: number, tva?: number): number {
+  //   console.log('déclenché'); // ???? 2 * 5
+  //   // condition
+  //   if (tva) {
+  //     return val * coef * (1 + tva / 100);
+  //   }
+  //   return val * coef;
+  // }
 }

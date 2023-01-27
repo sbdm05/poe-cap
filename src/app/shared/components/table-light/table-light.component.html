@@ -4,18 +4,16 @@
     <!-- table row (ligne) -->
     <tr>
       <!--   table header cells (th) -->
-      <th scope="col">#</th>
-      <th scope="col">titre 2 </th>
+      <th *ngFor="let item of headers" scope="col">
+        {{item}}
+      </th>
+
     </tr>
   </thead>
   <tbody>
-    <tr>
-      <th scope="row">1</th>
-      <!--  table data cells (td)-->
-      <td>Mark</td>
-      <td>Otto</td>
-      <td>@mdo</td>
-    </tr>
+    <!-- chaque tr = table row = une rangée -->
+   <!-- ici on projète la boucle depuis le parent -->
+    <ng-content></ng-content>
   </tbody>
 </table>
 
