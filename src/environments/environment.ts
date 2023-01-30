@@ -4,7 +4,10 @@
 
 export const environment = {
   production: false,
+  urlApi: 'http://localhost:3000'
 };
+// ng build   urlApi/orders
+
 
 /*
  * For easier debugging in development mode, you can import the following file

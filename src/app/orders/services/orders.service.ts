@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { StateOrder } from 'src/app/core/enums/state-order';
 import { Order } from 'src/app/core/models/order';
+import { environment } from 'src/environments/environment';
 
 // decorator
 @Injectable({
@@ -11,9 +12,12 @@ import { Order } from 'src/app/core/models/order';
 export class OrdersService {
   private collection$!: Observable<Order[]>;
 
+  private url = environment.urlApi;
+
+
   constructor(private http: HttpClient) {
     // on déclenche le setter
-    this.collection = this.http.get<Order[]>('http://localhost:3000/orders');
+    this.collection = this.http.get<Order[]>(`${this.url}/orders`);
   }
 
   // getter => this.ordersService.collection.subscribe()
@@ -42,8 +46,14 @@ export class OrdersService {
   // update this.http.put('url'/obj.id, obj)
   public update(obj: Order): Observable<Order> {
     // créer nouvel objet
-    return this.http.put<Order>(`http://localhost:3000/orders/${obj.id}`, obj);
+    return this.http.put<Order>(`${this.url}/orders/${obj.id}`, obj);
   }
 
-  
+  // add order
+  public add(obj: Order): Observable<Order>{
+    return this.http.post<Order>(`${this.url}/orders`, obj)
+  }
+
+  // delete order
+
 }

@@ -19,4 +19,4 @@ export class Order implements OrderI {
   }
 }
 
-// new Order({})
+// new Order(obj)

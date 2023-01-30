@@ -1,4 +1,8 @@
 <app-template-full-width title='Ajouter une commande'>
  <!-- utiliser un composant form -->
- <app-form-order></app-form-order>
+ <app-form-order
+ [init]='item'
+ (submitted)='onAdd($event)'
+ ></app-form-order>
+
 </app-template-full-width>
