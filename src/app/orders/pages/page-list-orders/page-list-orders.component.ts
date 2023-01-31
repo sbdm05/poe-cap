@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { StateOrder } from 'src/app/core/enums/state-order';
 import { Order } from 'src/app/core/models/order';
 import { OrdersService } from '../../services/orders.service';
@@ -33,12 +34,12 @@ export class PageListOrdersComponent implements OnInit {
   // obtenir les datas très tôt dans la construction du composant
 
   // accéder au service = injection de dépendances
-  constructor(private ordersService: OrdersService) {
+  constructor(private ordersService: OrdersService, private router: Router) {
     this.ordersService.collection.subscribe((data) => {
       //console.log(data);
 
       this.collection = data;
-      console.log(this.collection);
+      // console.log(this.collection);
     });
   }
 
@@ -72,5 +73,11 @@ export class PageListOrdersComponent implements OnInit {
     });
 
     // appel .subscribe()
+  }
+
+  public goToEdit(item: Order) {
+    // console.log(item)
+    // Redirection vers orders/edit
+    this.router.navigate(['orders', 'edit', item.id]);
   }
 }

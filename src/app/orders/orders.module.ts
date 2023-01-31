@@ -9,6 +9,8 @@ import { TemplatesModule } from '../templates/templates.module';
 import { SharedModule } from '../shared/shared.module';
 import { FormOrderComponent } from './components/form-order/form-order.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { IconEditComponent } from '../icons/components/icon-edit/icon-edit.component';
+import { IconsModule } from '../icons/icons.module';
 
 
 @NgModule({
@@ -23,7 +25,8 @@ import { ReactiveFormsModule } from '@angular/forms';
     OrdersRoutingModule,
     TemplatesModule,
     SharedModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    IconsModule
   ]
 })
 export class OrdersModule { }

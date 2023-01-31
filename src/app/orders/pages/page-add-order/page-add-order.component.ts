@@ -10,7 +10,7 @@ import { OrdersService } from '../../services/orders.service';
 })
 export class PageAddOrderComponent implements OnInit {
   // créer un nouvel objet pour app-form-order
-  public item: Order = new Order();
+  public item: Order = new Order(); // jamais undefined
 
   constructor(private ordersService: OrdersService, private router: Router) {}
 

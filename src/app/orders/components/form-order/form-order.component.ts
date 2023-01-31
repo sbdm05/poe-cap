@@ -1,5 +1,5 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { StateOrder } from 'src/app/core/enums/state-order';
 import { Order } from 'src/app/core/models/order';
 
@@ -18,22 +18,28 @@ export class FormOrderComponent implements OnInit {
   @Input() init!: Order;
 
   // 1 - Propriété pour événement
-  @Output() submitted = new EventEmitter();
+  @Output() submitted = new EventEmitter(); // new Subject()
 
   constructor(private fb: FormBuilder) {
     // console.log(this.init); // ??? undefined
   }
 
   ngOnInit(): void {
-    console.log(this.init); // ??? undefined
+   // console.log(this.init); // ??? undefined
     this.form = this.fb.group({
       // créer un objet
       tjmHt: [this.init.tjmHt],
       nbJours: [this.init.nbJours],
       tva: [this.init.tva],
       state: [this.init.state],
-      typePresta: [this.init.typePresta],
-      client: [this.init.client],
+      typePresta: [
+        this.init.typePresta,
+        [Validators.required, Validators.minLength(3)],
+      ],
+      client: [
+        this.init.client,
+        [Validators.required, Validators.minLength(3)],
+      ],
       comment: [this.init.comment],
       id: [this.init.id],
     });
@@ -41,11 +47,11 @@ export class FormOrderComponent implements OnInit {
 
   // au submit, on veut récupérer un objet: Order et envoyer au back Order[]
   public onSubmit() {
-    console.log(this.form.value);
+    // console.log(this.form.value);
     // envoyer this.form.value au parent
     // 2 - déclencher la propriété
     // semblable à .next
-    this.submitted.emit(this.form.value);
+    this.submitted.emit(this.form.value); // .next
   }
 }
 

@@ -14,7 +14,6 @@ export class OrdersService {
 
   private url = environment.urlApi;
 
-
   constructor(private http: HttpClient) {
     // on déclenche le setter
     this.collection = this.http.get<Order[]>(`${this.url}/orders`);
@@ -50,10 +49,15 @@ export class OrdersService {
   }
 
   // add order
-  public add(obj: Order): Observable<Order>{
-    return this.http.post<Order>(`${this.url}/orders`, obj)
+  public add(obj: Order): Observable<Order> {
+    return this.http.post<Order>(`${this.url}/orders`, obj);
+  }
+
+  // getItemById
+  public getItemById(id: number): Observable<Order> {
+    // appel http
+    return this.http.get<Order>(`${this.url}/orders/${id}`);
   }
 
   // delete order
-
 }

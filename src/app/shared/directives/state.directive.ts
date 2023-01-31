@@ -14,7 +14,7 @@ export class StateDirective {
   @HostBinding('class') tdClassName!: string;
 
   constructor() {
-    console.log('depuis directive appstate'); // undefined
+    //console.log('depuis directive appstate'); // undefined
   }
 
   // déclenchée une seule fois
@@ -23,7 +23,7 @@ export class StateDirective {
   }
 
   ngOnChanges() {
-    console.log(this.etat); // ???
+    //console.log(this.etat); // ???
     // cibler l'attribut class
     // donner une valeur à la classe
     this.tdClassName = `state-${this.etat.toLowerCase()}`; // rouge
