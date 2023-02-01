@@ -36,7 +36,7 @@ export class PageEditOrderComponent implements OnInit {
   ngOnInit(): void {}
 
   onEdit(obj: Order) {
-    console.log(obj, 'depuis on edit'); // this.form.value
+    // console.log(obj, 'depuis on edit'); // this.form.value
     /*
     envoyer au serveur l'objet modifié ?
     Dans ordersService, déclencher la méthode update
