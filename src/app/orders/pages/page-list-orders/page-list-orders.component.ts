@@ -80,4 +80,11 @@ export class PageListOrdersComponent implements OnInit {
     // Redirection vers orders/edit
     this.router.navigate(['orders', 'edit', item.id]);
   }
+
+  public onDelete(id: number) {
+    // appel au service
+    this.ordersService.delete(id).subscribe((data) => {
+      console.log(data);
+    });
+  }
 }

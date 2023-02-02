@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { DEFAULT_CURRENCY_CODE, NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 import { OrdersRoutingModule } from './orders-routing.module';
@@ -12,13 +12,12 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { IconEditComponent } from '../icons/components/icon-edit/icon-edit.component';
 import { IconsModule } from '../icons/icons.module';
 
-
 @NgModule({
   declarations: [
     PageListOrdersComponent,
     PageAddOrderComponent,
     PageEditOrderComponent,
-    FormOrderComponent
+    FormOrderComponent,
   ],
   imports: [
     CommonModule,
@@ -26,7 +25,10 @@ import { IconsModule } from '../icons/icons.module';
     TemplatesModule,
     SharedModule,
     ReactiveFormsModule,
-    IconsModule
-  ]
+    IconsModule,
+  ],
+  providers: [
+    { provide: DEFAULT_CURRENCY_CODE, useValue: 'EUR' }
+  ],
 })
-export class OrdersModule { }
+export class OrdersModule {}
